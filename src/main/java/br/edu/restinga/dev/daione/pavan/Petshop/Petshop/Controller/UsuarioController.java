@@ -1,8 +1,8 @@
 package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Controller;
 
-import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.DAO.PetDAO;
+import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.DAO.UsuarioDAO;
 import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Errors.NaoEncontrado;
-import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model.Pet;
+import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model.Usuario;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,36 +16,36 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PetController {
+public class UsuarioController {
 
     @Autowired
-    PetDAO petDao;
+    UsuarioDAO usuarioDao;
 
     @RequestMapping(path = "/pet", method = RequestMethod.GET)
-    public Iterable<Pet> listar() {
-        return petDao.findAll();
+    public Iterable<Usuario> listar() {
+        return usuarioDao.findAll();
     }
 
-    @RequestMapping(path = "/pet/", method = RequestMethod.POST)
+    @RequestMapping(path = "/usuario/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Pet salvar(@RequestBody Pet pet) {
-        pet.setID(0);
-        return petDao.save(pet);
+    public Usuario salvar(@RequestBody Usuario usuario) {
+        usuario.setID(0);
+        return usuarioDao.save(usuario);
     }
 
-    @RequestMapping(path = "/pet/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/usuario/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizar(@PathVariable int id, @RequestBody Pet pet) {
-          if (!petDao.existsById(id)) {
+    public void atualizar(@PathVariable int id, @RequestBody Usuario usuario) {
+          if (!usuarioDao.existsById(id)) {
             throw new NaoEncontrado("Produto de id: " + id + " não encontrado");
         }
-        pet.setID(id);
-        petDao.save(pet);
+        usuario.setID(id);
+        usuarioDao.save(usuario);
     }
 
-    @RequestMapping(path = "/PET/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Pet> recuperar(@PathVariable int id) {
-        Optional<Pet> findById = petDao.findById(id);
+    @RequestMapping(path = "/usuario/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Usuario> recuperar(@PathVariable int id) {
+        Optional<Usuario> findById = usuarioDao.findById(id);
         if (findById.isPresent()) {
             return ResponseEntity.ok(findById.get());
         } else {
@@ -54,13 +54,13 @@ public class PetController {
         }
     }
 
-    @RequestMapping(path = "/pet/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/usuario/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizar(@PathVariable int id) {
-        if (!petDao.existsById(id)) {
-            throw new NaoEncontrado("Produto de id: " + id + " não encontrado");
+        if (!usuarioDao.existsById(id)) {
+            throw new NaoEncontrado("Usuario de id: " + id + " não encontrado");
         }
-        petDao.deleteById(id);
+        usuarioDao.deleteById(id);
     }
 
 }

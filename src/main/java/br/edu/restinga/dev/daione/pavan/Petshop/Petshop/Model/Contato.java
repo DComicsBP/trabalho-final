@@ -1,12 +1,15 @@
-package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.CadastroGeral;
+package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 
 @Entity
 public class Contato {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;
     private String email;
     private String telefone; 

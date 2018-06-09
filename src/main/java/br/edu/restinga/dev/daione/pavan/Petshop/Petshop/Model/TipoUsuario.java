@@ -1,4 +1,4 @@
-package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.Usuario;
+package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

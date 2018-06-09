@@ -1,11 +1,14 @@
-package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.CadastroGeral;
+package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Endereco {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; 
     private String logradouro;
     private String cep; 

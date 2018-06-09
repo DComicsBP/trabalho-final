@@ -1,12 +1,15 @@
-package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.Consulta;
+package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Consulta {
     @Id
-    private int id; 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int ID; 
     private int IDPet; 
     private int IDVeterinario; 
     private String Motivo; 
@@ -15,12 +18,12 @@ public class Consulta {
     private double valorTotal;  
     private int procedimento;
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public int getIDPet() {

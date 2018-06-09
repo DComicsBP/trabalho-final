@@ -1,10 +1,12 @@
-package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.Usuario;
+package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
-import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.CadastroGeral.Contato;
-import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.CadastroGeral.Endereco;
+import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model.Contato;
+import br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model.Endereco;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -13,6 +15,7 @@ import javax.validation.constraints.NotNull;
 public class Usuario {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotNull
     private String nome; 

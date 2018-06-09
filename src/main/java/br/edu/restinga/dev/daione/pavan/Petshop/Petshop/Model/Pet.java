@@ -1,17 +1,20 @@
-package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Entity.PetCliente;
+package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Pet {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID; 
     private String nome; 
+    @Temporal(TemporalType.DATE)
     private Date nascimento;
 
     public int getID() {

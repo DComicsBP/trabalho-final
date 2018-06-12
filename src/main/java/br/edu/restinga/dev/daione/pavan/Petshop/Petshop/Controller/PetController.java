@@ -26,12 +26,6 @@ public class PetController {
         return petDao.findAll();
     }
 
-   
-
-}
-
-
-/*
  @RequestMapping(path = "/pet/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Pet salvar(@RequestBody Pet pet) {
@@ -68,4 +62,4 @@ public class PetController {
         }
         petDao.deleteById(id);
     }
-*/
+}

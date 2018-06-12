@@ -21,12 +21,12 @@ public class UsuarioController {
     @Autowired
     UsuarioDAO usuarioDao;
 
-    @RequestMapping(path = "/pet", method = RequestMethod.GET)
+    @RequestMapping(path = "/usuario", method = RequestMethod.GET)
     public Iterable<Usuario> listar() {
         return usuarioDao.findAll();
     }
 
-    @RequestMapping(path = "/usuario/", method = RequestMethod.POST)
+  @RequestMapping(path = "/usuario/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario salvar(@RequestBody Usuario usuario) {
         usuario.setID(0);
@@ -62,5 +62,4 @@ public class UsuarioController {
         }
         usuarioDao.deleteById(id);
     }
-
 }

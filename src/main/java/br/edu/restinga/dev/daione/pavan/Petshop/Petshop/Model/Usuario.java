@@ -104,6 +104,4 @@ public abstract class Usuario implements Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-   
 }

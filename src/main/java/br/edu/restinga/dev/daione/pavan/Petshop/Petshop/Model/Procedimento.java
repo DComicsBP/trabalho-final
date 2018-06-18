@@ -1,5 +1,7 @@
 package br.edu.restinga.dev.daione.pavan.Petshop.Petshop.Model;
 
+import java.util.List;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +12,8 @@ public class Procedimento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID; 
-    private int tipoProcedimento; 
+    @ElementCollection
+    private List<String> tipoProcedimento; 
     private String observacoes; 
     private int IdPet;
     private int IDFuncionario; 
@@ -23,11 +26,11 @@ public class Procedimento {
         this.ID = ID;
     }
 
-    public int getTipoProcedimento() {
+    public List<String> getTipoProcedimento() {
         return tipoProcedimento;
     }
 
-    public void setTipoProcedimento(int tipoProcedimento) {
+    public void setTipoProcedimento(List<String> tipoProcedimento) {
         this.tipoProcedimento = tipoProcedimento;
     }
 
@@ -54,7 +57,4 @@ public class Procedimento {
     public void setIDFuncionario(int IDFuncionario) {
         this.IDFuncionario = IDFuncionario;
     }
-    
-    
-    
 }

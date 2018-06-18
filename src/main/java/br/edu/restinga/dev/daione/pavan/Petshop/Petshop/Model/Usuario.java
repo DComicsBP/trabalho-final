@@ -17,15 +17,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table (name = "usuarios")
 @Inheritance (strategy = InheritanceType.JOINED)
-
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "tipo" )
-@JsonSubTypes({
-    @JsonSubTypes.Type(name = "cliente", value = Cliente.class),
-    @JsonSubTypes.Type(name = "veterinario", value = Veterinario.class),
-    @JsonSubTypes.Type(name = "funcionario", value = Funcionario.class),
-
-})
-
 public abstract class Usuario implements Serializable {
     
     @Id
@@ -43,8 +34,6 @@ public abstract class Usuario implements Serializable {
     private int endereco; 
     @NotNull
     private int contato; 
-    
-    @Transient
     @JsonProperty
     private final String tipoUsuario = "tipo";
     
